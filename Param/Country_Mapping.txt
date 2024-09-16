@@ -1,0 +1,5 @@
+﻿AT;Austria
+DE;Germany
+FR;France
+IT;Italy
+CH;Swiss

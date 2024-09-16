@@ -1,0 +1,6 @@
+﻿email;Age;CountryCo
+jeanjacques-en-or@orange.fr;72;FR
+hannahnas@gmail.com;34;DE
+Leonardo1987@gmail.com;37;CH
+monmimrail51210@outlook.fr;45;FR
+elena512@gmail.com;27;CH
