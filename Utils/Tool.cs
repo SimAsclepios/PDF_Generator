@@ -69,7 +69,7 @@ namespace PDF_Generator_Program.Utils
         /// <returns></returns>
         public static string GetFullPath(string relativePath)
         {
-            const string programName = "PDF_Generator_Program";
+            const string programName = "PDF_Generator";
             string currentDirectory = Directory.GetCurrentDirectory();
             string baseDirectory = currentDirectory.Substring(0, currentDirectory.IndexOf(programName) + programName.Length);
             return Path.Combine(baseDirectory, relativePath);
