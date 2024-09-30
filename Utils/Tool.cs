@@ -80,7 +80,7 @@ namespace PDF_Generator_Program.Utils
         /// </summary>
         /// <param name="ts_columnNames"></param>
         /// <param name="lts_dataRow"></param>
-        /// <param name="tableColor">Background color of the table</param>
+        /// <param name="tableColor">Background color of the data table</param>
         /// <param name="s_logoPath"></param>
         /// <param name="s_outputPathfile"></param>
         public static void Generate_PDF_with_DataTable(string[] ts_columnNames, List<string[]> lts_dataRow, Color tableColor, string s_logoPath, string s_outputPathfile)
@@ -109,19 +109,16 @@ namespace PDF_Generator_Program.Utils
 
             using (PdfWriter writer = new PdfWriter(s_outputPathfile))
             {
-                // Ouvre un document PDF avec ce writer
                 using (PdfDocument pdfDoc = new PdfDocument(writer))
                 {
                     Document document = new Document(pdfDoc);
 
-                    // Charger l'image (logo PNG)
                     ImageData logoData = ImageDataFactory.Create(s_logoPath);
                     Image logo = new Image(logoData);
 
-                    // Positionner le logo en haut à gauche (ajustez la taille si nécessaire)
-                    logo.SetFixedPosition(50, pdfDoc.GetDefaultPageSize().GetHeight() - 150); // Position en haut à gauche
-                    logo.SetHeight(100); // Taille du logo (ajustable)
-                    document.Add(logo); // Ajouter le logo au document
+                    logo.SetFixedPosition(50, pdfDoc.GetDefaultPageSize().GetHeight() - 150); 
+                    logo.SetHeight(100);
+                    document.Add(logo);
 
                     document.Add(new Paragraph("\n\r \n\r \n\r \n\r"));
                     Paragraph Title = new Paragraph("Customer Data List")
@@ -131,13 +128,11 @@ namespace PDF_Generator_Program.Utils
 
                     document.Add(Title);
                     document.Add(new Paragraph("\n\r"));
-
-                    // Crée un tableau 
+     
                     Table table = new Table(ts_columnNames.Length);
                     table.SetWidth(UnitValue.CreatePercentValue(80))
                             .SetHorizontalAlignment(HorizontalAlignment.CENTER);
 
-                    // Ajout des en-têtes (première ligne de la liste)
                     for (int i = 0; i < ts_columnNames.Length; i++)
                     {
                         if (ts_columnNames[i].Equals("CountryCo"))
@@ -160,15 +155,11 @@ namespace PDF_Generator_Program.Utils
                             else
                                 cell.Add(new Paragraph(row[i]));
 
-                            cell.SetBackgroundColor(tableColor); // Définit la couleur de fond
+                            cell.SetBackgroundColor(tableColor);
                             table.AddCell(cell);
                         }
                     }
-
-                    // Ajoute le tableau au document
                     document.Add(table);
-
-                    // Ferme le document
                     document.Close();
                 }
             }
