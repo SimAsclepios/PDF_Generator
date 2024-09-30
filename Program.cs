@@ -26,7 +26,7 @@ string[] ts_columnNames;    // Contain Column names only
 List<string[]> lts_dataRow; // Contain data row without columns names
 
 
-// ---------------------------- 1 - File --------------------------- //
+// ----------------------------- 1 - File ---------------------------- //
 Tool.LogInfo("Step 1 - Read Data File");
 
 if (!File.Exists(s_inputFilePath))
