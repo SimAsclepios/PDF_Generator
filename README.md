@@ -17,6 +17,7 @@ The input file is pre-filled with data, containing 3 columns and 5 rows of data.
 
 
 # Requirements
+- Visual Studio Community 2022
 - .NET 6.0 or later
 
 # Installation

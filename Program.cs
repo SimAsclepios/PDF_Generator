@@ -39,7 +39,7 @@ if (ls_fileLines.Count == 0)
     Tool.LogError(ErrorType.FormatException, "The file is empty.");
 else if (ls_fileLines.Count == 1)
     Tool.LogError(ErrorType.FormatException, $"In the input file : '{s_inputFilePath}', There are only column names (1st line) without data (line 2+).");
-if (ls_fileLines.Count > ci_lineCount_max + 1)
+else if (ls_fileLines.Count > ci_lineCount_max + 1)
     Tool.LogError(ErrorType.FormatException, $"The file contains too many lines : {ls_fileLines.Count}. It doesn't exceed {ci_lineCount_max + 1} lines");
 
 ts_columnNames = ls_fileLines[0].Split(';');
